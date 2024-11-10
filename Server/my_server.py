@@ -25,6 +25,8 @@ def handleConnection(connection_socket, client_addr):
             # Use buffer of size 2048 to recv the GET or POST request
             msg = connection_socket.recv(2048).decode("UTF-8")
             if not msg:
+                print("Connection is closed, time out")
+                connection_socket.close()
                 break
             print(msg)
 
