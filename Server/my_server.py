@@ -34,7 +34,7 @@ def handleConnection(connection_socket, client_addr):
             get_line = msg.splitlines()[0]
             method, path, *_ = get_line.split()
 
-            # In case of request from web browser or from absolute path, you need to remove the slash
+            # In case of request from web browser or from local client, you need to remove the slash
             path = path.lstrip('/')
 
             if method == "GET":
